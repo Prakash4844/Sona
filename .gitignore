@@ -1,14 +1,54 @@
-# Binaries
+# Binaries for programs and plugins
 *.exe
+*.exe~
 *.dll
 *.so
 *.dylib
 
-# Build directory
-build/
+# Test binary, built with `go test -c`
+*.test
 
-# Node modules
-node_modules/
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
 
-# OS files
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Go workspace file
+go.work
+
+# Wails build directory
+build/bin/
+
+# Frontend dependencies
+frontend/node_modules/
+frontend/dist/
+
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Log files
+*.log
+
+# Environment variables
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+
+# User settings directory
+.sona/
