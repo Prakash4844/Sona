@@ -8,6 +8,69 @@
   "frontend:dev:serverUrl": "auto",
   "author": {
     "name": "Prakash Sahu",
-    "email": "pk484442@gmail.com"
+    "email": "prakashsahu0518@gmail.com"
+  },
+  "info": {
+    "productName": "Sona - Clipboard Manager",
+    "productVersion": "1.0.0",
+    "copyright": "Copyright © 2024 Prakash Sahu",
+    "comments": "Advanced clipboard manager with beautiful UI"
+  },
+  "build": {
+    "appicon": "build/appicon.png",
+    "targets": [
+      {
+        "platform": "darwin",
+        "arch": "amd64"
+      },
+      {
+        "platform": "darwin", 
+        "arch": "arm64"
+      },
+      {
+        "platform": "windows",
+        "arch": "amd64"
+      },
+      {
+        "platform": "linux",
+        "arch": "amd64"
+      }
+    ],
+    "darwin": {
+      "icon": "build/darwin/icon.icns",
+      "bundle": {
+        "packageId": "com.sona.clipboard",
+        "category": "public.app-category.productivity",
+        "shortVersion": "1.0.0",
+        "version": "1.0.0",
+        "info": "Advanced clipboard manager"
+      }
+    },
+    "windows": {
+      "icon": "build/windows/icon.ico",
+      "exe": {
+        "companyName": "Sona",
+        "fileDescription": "Sona Clipboard Manager",
+        "fileVersion": "1.0.0",
+        "productName": "Sona",
+        "productVersion": "1.0.0",
+        "copyright": "Copyright © 2025 Prakash Sahu",
+        "originalFilename": "sona.exe"
+      }
+    },
+    "linux": {
+      "icon": "build/linux/icon.png",
+      "desktop": {
+        "name": "Sona",
+        "comment": "Advanced Clipboard Manager",
+        "genericName": "Clipboard Manager",
+        "keywords": "clipboard;copy;paste;history",
+        "categories": "Utility;Office;",
+        "startupNotify": true,
+        "terminal": false
+      }
+    }
   }
 }
+
+
