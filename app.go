@@ -81,3 +81,9 @@ func (a *App) GetClipboardHistory() []ClipboardItem {
 	defer a.mutex.RUnlock()
 	return a.clipboardHistory
 }
+
+// CopyToClipboard copies content to system clipboard
+func (a *App) CopyToClipboard(content string) error {
+	a.lastClipboard = content
+	return clipboard.WriteAll(content)
+}
