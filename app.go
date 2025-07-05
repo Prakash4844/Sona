@@ -51,7 +51,7 @@ func NewApp() *App {
 	app := &App{
 		clipboardHistory: make([]ClipboardItem, 0),
 		settings: Settings{
-			MaxHistoryLength: 100,
+			MaxHistoryLength: 50,
 			Hotkey:           "ctrl+shift+v",
 			UITheme:          "blur",
 		},
