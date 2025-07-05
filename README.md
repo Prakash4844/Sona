@@ -5,6 +5,15 @@
 
 A modern clipboard manager built with Wails and Go.
 
+## Screenshots
+<div align="center">
+  <img width="562" alt="Sona Main Window" src="https://github.com/user-attachments/assets/01ac1040-cd1b-4490-ace4-dc5711dbe21d" />
+
+  <img width="562" alt="Sona Setting Panel" src="https://github.com/user-attachments/assets/e9e18bf4-4273-4d5b-98e5-5ab1d1fcb30f" />
+
+  <img width="562" alt="Sona Dark Theme" src="https://github.com/user-attachments/assets/590f51ea-ace6-43f9-9cfd-61429391e1fd" />
+</div>
+
 ## Features
 
 - Real-time clipboard monitoring
