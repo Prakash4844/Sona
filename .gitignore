@@ -1,0 +1,14 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build directory
+build/
+
+# Node modules
+node_modules/
+
+# OS files
+.DS_Store
