@@ -4,21 +4,148 @@
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Sona - Clipboard Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="app">
     <div class="app-container">
         <header class="app-header">
-            <h1 class="app-title">Sona</h1>
+            <div class="header-content">
+                <h1 class="app-title">Sona</h1>
+                <div class="header-actions">
+                    <button class="icon-btn" id="settings-btn" title="Settings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                        </svg>
+                    </button>
+                    <button class="icon-btn" id="hide-btn" title="Hide Window">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </header>
+
         <main class="main-content">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search clipboard history..." class="search-input">
+            </div>
+
             <div class="clipboard-list" id="clipboard-list">
                 <div class="empty-state" id="empty-state">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
                     <h3>No clipboard history yet</h3>
                     <p>Start copying text and it will appear here</p>
                 </div>
             </div>
         </main>
+
+        <!-- Settings Modal -->
+        <div class="modal-overlay" id="settings-modal" style="display: none;">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Settings</h2>
+                    <button class="icon-btn" id="close-settings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="setting-group">
+                        <label for="max-history">Max History Length</label>
+                        <input type="number" id="max-history" min="10" max="1000" value="100">
+                    </div>
+                    <div class="setting-group">
+                        <label for="hotkey">Hotkey</label>
+                        <input type="text" id="hotkey" value="ctrl+shift+v" readonly>
+                    </div>
+                    <div class="setting-group">
+                        <label for="theme">Theme</label>
+                        <select id="theme">
+                            <option value="blur">Blur Glass</option>
+                            <option value="dark">Dark Solid</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="about-btn">About</button>
+                    <button class="btn-primary" id="save-settings">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Modal -->
+        <div class="modal-overlay" id="about-modal" style="display: none;">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>About Sona</h2>
+                    <button class="icon-btn" id="close-about">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <div class="about-content">
+                        <div class="app-logo">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </div>
+                        <h3>Sona Clipboard Manager</h3>
+                        <p class="version">Version 1.0.0</p>
+                        <p class="description">A powerful clipboard manager that helps you keep track of your copy history, edit clipboard content, and manage your workflow efficiently.</p>
+                        <div class="features">
+                            <h4>Features:</h4>
+                            <ul>
+                                <li>✨ Real-time clipboard monitoring</li>
+                                <li>📌 Pin important items</li>
+                                <li>✏️ Edit clipboard content</li>
+                                <li>⌨️ Global keyboard shortcuts</li>
+                                <li>🎨 Beautiful blur glass UI</li>
+                                <li>⚙️ Configurable settings</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-primary" id="close-about-btn">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal -->
+        <div class="modal-overlay" id="edit-modal" style="display: none;">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Edit Clipboard Item</h2>
+                    <button class="icon-btn" id="close-edit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-content">
+                    <textarea id="edit-content" placeholder="Edit your content here..." rows="10"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" id="cancel-edit">Cancel</button>
+                    <button class="btn-primary" id="save-edit">Save</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="./src/main.js" type="module"></script>
