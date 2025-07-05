@@ -1,4 +1,7 @@
-# Sona
+<div align="center">
+  <h1>Sona</h1>
+  <img src="build/appicon.png" alt="sona icon" img width="" height="500"/>
+</div>
 
 A modern clipboard manager built with Wails and Go.
 
@@ -23,7 +26,7 @@ A modern clipboard manager built with Wails and Go.
 ### Setup
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone git@github.com:Prakash4844/Sona.git
 cd sona
 
 # Install dependencies
@@ -43,12 +46,5 @@ wails build
 3. Click any item to copy it back to your clipboard
 4. Use Ctrl+Shift+V to open/focus the window
 
-### Keyboard Shortcuts
-- `Ctrl+Shift+V`: Open/focus window
-- `Cmd+Q` (macOS) / `Alt+F4` (Windows): Quit
-- `Cmd+K` / `Ctrl+K`: Clear history
-- `Escape`: Close modals
-
 ## License
-
-MIT License - see LICENSE file for details.
+![GitHub](https://img.shields.io/github/license/prakash4844/Sona?style=for-the-badge)
