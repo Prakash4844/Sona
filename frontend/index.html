@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>sona</title>
+    <title>Sona - Clipboard Manager</title>
 </head>
 <body>
-<div id="app"></div>
+<div id="app">
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">Sona</h1>
+        </header>
+        <main class="main-content">
+            <div class="clipboard-list" id="clipboard-list">
+                <div class="empty-state" id="empty-state">
+                    <h3>No clipboard history yet</h3>
+                    <p>Start copying text and it will appear here</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
 <script src="./src/main.js" type="module"></script>
 </body>
 </html>
