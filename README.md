@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Sona</h1>
-  <img src="build/appicon.png" alt="sona icon" img width="" height="500"/>
+  <img src="build/appicon.png" alt="sona icon" img width="300" height=""/>
 </div>
 
 A modern clipboard manager built with Wails and Go.
