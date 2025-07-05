@@ -216,8 +216,8 @@ class ClipboardApp {
         div.className = `clipboard-item ${item.is_pinned ? 'pinned' : ''}`;
         div.setAttribute('data-id', item.id);
 
-        const content = item.content.length > 150 
-            ? item.content.substring(0, 150) + '...' 
+        const content = item.content.length > 200 
+            ? item.content.substring(0, 200) + '...' 
             : item.content;
 
         const timestamp = new Date(item.timestamp).toLocaleString();
